@@ -9,6 +9,10 @@ jobs:
   build-deploy:
     runs-on: self-hosted  # usa seu runner que você instalou
     steps:
+      - name: Fix Git remote URL to HTTPS
+        run: |
+          git remote set-url origin https://github.com/jyeknom/devops-platform.git
+
       - name: Checkout code
         uses: actions/checkout@v3
         with:
