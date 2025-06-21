@@ -3,21 +3,15 @@ name: DevOps Pipeline
 on:
   push:
     branches:
-      - main  # ou a branch que você usar
+      - main
 
 jobs:
   build-deploy:
-    runs-on: self-hosted  # usa seu runner que você instalou
-    steps:
-      - name: Fix Git remote URL to HTTPS
-        run: |
-          git remote set-url origin https://github.com/jyeknom/devops-platform.git
+    runs-on: self-hosted
 
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          repository: jyeknom/devops-platform
-          ssh-strict: false
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -29,9 +23,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
 
+      # Descomenta se tiver testes
       # - name: Run tests
       #   run: |
-      #     pytest backend/tests  # ajuste se tiver testes
+      #     pytest backend/tests
 
       - name: Build Docker image
         run: |
