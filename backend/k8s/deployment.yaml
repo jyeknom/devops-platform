@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-python
+  template:
+    metadata:
+      labels:
+        app: api-python
+    spec:
+      containers:
+      - name: api-python
+        image: localhost:32000/api-python
+        ports:
+        - containerPort: 8000
+        env:
+        - name: MONGO_URL
+          value: mongodb://mongodb:27017
