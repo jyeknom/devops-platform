@@ -1,2 +1,0 @@
-./config.sh --url https://github.com/SEU_USUARIO/SEU_REPOSITORIO \
---token SEU_TOKEN
