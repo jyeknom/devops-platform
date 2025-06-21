@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          repository: jyeknom/devops-plataform
+          repository: jyeknom/devops-platform
           ssh-strict: false
 
       - name: Set up Python
